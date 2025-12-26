@@ -1,22 +1,15 @@
 import random as rng
 
-def dice4():
-    randomNum = rng.randint(1,4)
-    return randomNum
-def dice6():
-    randomNum = rng.randint(1,6)
-    return randomNum
-def dice8():
-    randomNum = rng.randint(1,8)
-    return randomNum
-def dice10():
-    randomNum = rng.randint(1,10)
-    return randomNum
+chosenDice = "D20"
 
-def dice12():
-    randomNum = rng.randint(1,12)
-    return randomNum
+def printButtonPressed(button_pressed):
+    global chosenDice
+    chosenDice = button_pressed
+    print(f"Dado escolhido: {chosenDice}")
 
-def dice20():
-    randomNum = rng.randint(1,20)
-    return randomNum
+def rolar_dado_atual(labelResult):
+    global chosenDice
+    lados = int(chosenDice.replace("D", ""))
+    resultado = rng.randint(1, lados)
+
+    labelResult.configure(text=str(resultado))
